@@ -6,8 +6,7 @@ import pg from 'pg';
 import { connect } from './database/configpostgre.js';
 
 // Import Models (ensure Art is imported if needed directly here, though likely not)
-import User from './models/User.js';
-import Art from './models/Art.js'; // Import Art model
+import { User, Art } from '../database/configpostgre.js'; 
 
 // Import Routes
 import userRoute from './routes/user.route.js';

@@ -1,23 +1,26 @@
 import { DataTypes } from 'sequelize';
-import { sequelize } from '../database/configpostgre.js';
 
-const User = sequelize.define('User', {
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false
-  }
-}, {
-  tableName: 'users',
-  timestamps: true
-});
+// Exporta uma função que define o modelo User
+const defineUserModel = (sequelize) => {
+  const User = sequelize.define('User', {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  }, {
+    tableName: 'users',
+    timestamps: true
+  });
+  return User;
+};
 
-export default User;
+export default defineUserModel;

@@ -1,7 +1,5 @@
 
-import Art from '../models/Art.js';
-import User from '../models/User.js'; // Import User model if needed for associations
-
+import { User, Art } from '../database/configpostgre.js'; 
 const artController = {
   // GET /arts - Retrieve all arts
   getAllArts: async (req, res) => {
