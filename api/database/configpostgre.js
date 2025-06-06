@@ -8,6 +8,8 @@ import defineArtModel from '../models/Art.js';
 
 dotenv.config();
 
+
+
 // 1. Inicializa o Sequelize PRIMEIRO
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',

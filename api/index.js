@@ -1,12 +1,30 @@
-
-import express from 'express';
 import dotenv from 'dotenv';
-import cors from 'cors';
-import pg from 'pg';
-import { connect } from './database/configpostgre.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Import Models (ensure Art is imported if needed directly here, though likely not)
-import { User, Art } from '../database/configpostgre.js'; 
+// Carrega variáveis de ambiente do .env na raiz do projeto
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.resolve(__dirname, '../.env') }); // Ajuste: só um nível acima (../) a partir de api/index.js
+console.log("DEBUG: Todas as variáveis carregadas:", process.env);
+
+
+
+
+// Agora vêm os outros imports originais do arquivo:
+import express from 'express';
+import cors from 'cors';
+// ... resto dos imports e do código ...
+
+
+
+
+import pg from 'pg';
+import { connect, User, Art } from './database/configpostgre.js';
+
+
+
+
 
 // Import Routes
 import userRoute from './routes/user.route.js';
